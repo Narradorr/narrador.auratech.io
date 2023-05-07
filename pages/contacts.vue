@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="contacts__map">
-                <img class="map-image" src="img/map.png" alt="img/" />
+                <img class="map-image" src="/img/map.png" alt="img/" />
             </div>
         </div>
     </section>
