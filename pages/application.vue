@@ -11,8 +11,9 @@
             placeholder="Ваше имя" />
         </div>
         <div class="col-md-5 col-sm-12 ">
-          <input required oninvalid="this.setCustomValidity('Это обязательное поле. Введите телефон')" oninput="this.setCustomValidity('')" type="phone" name="user_phone"
-            class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Контактный номер"
+          <input required oninvalid="this.setCustomValidity('Это обязательное поле. Введите телефон')"
+            oninput="this.setCustomValidity('')" type="phone" name="user_phone" class="form-control"
+            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Контактный номер"
             v-mask="'+7 (___) ___ __ __'" />
           <!-- <vue-tel-input v-model="vueTel.phone" v-bind="vueTel.props"></vue-tel-input> -->
         </div>
@@ -20,8 +21,9 @@
 
       <div class="row my-4">
         <div class="col-md-5">
-          <input required oninvalid="this.setCustomValidity('Это обязательное поле. Введите email')" oninput="this.setCustomValidity('')" type="email" name="user_email"
-            class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" />
+          <input required oninvalid="this.setCustomValidity('Это обязательное поле. Введите email')"
+            oninput="this.setCustomValidity('')" type="email" name="user_email" class="form-control"
+            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" />
         </div>
         <div class="col-md-5">
           <input type="text" name="user_company" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -36,12 +38,27 @@
         </div>
       </div>
 
+      <div class="row" v-if="sendSuccess">
+        <div class="col-md-10">
+          <span class="success-message">Ваша заявка отправлена, в ближайшее время мы обязательно с вами свяжемся</span>
+        </div>
+      </div>
+
+      <div class="row" v-if="sendError">
+        <div class="col-md-10">
+          <div class="error-message">Возникли проблемы при отправки заявки. Пожалуйста, свяжитесь с нами по номеру,
+            указанному в <NuxtLink to="/contacts">контактах</NuxtLink>
+        </div>
+      </div>
+      </div>
+
       <div class="row my-4">
         <div class="col">
-          <button type="submit" class="btn qq-button">Отправить заявку</button>
+          <button :disabled="sendSuccess || sendError" type="submit" class="btn qq-button">Отправить заявку</button>
         </div>
       </div>
     </form>
+
 
   </section>
 </template>
@@ -57,6 +74,8 @@ export default Vue.extend({
   name: 'ApplicationPage',
   data() {
     return {
+      sendSuccess: false,
+      sendError: false,
       vueTel: {
         phone: "",
         props: {
@@ -76,8 +95,10 @@ export default Vue.extend({
     sendEmail() {
       emailjs.sendForm('service_excjnbl', 'template_nowtjlc', this.$refs.form, 'eCvyPeabLe8Y53cnR')
         .then((result) => {
+          this.sendSuccess = true;
           console.log('SUCCESS!', result.text);
         }, (error) => {
+          this.sendError = true;
           console.log('FAILED...', error.text);
         });
 
@@ -119,5 +140,15 @@ export default Vue.extend({
   .row+.row {
     margin-top: 2em !important;
   }
-}
-</style>
+
+  .success-message {
+    color: rgb(43, 198, 43);
+    font-size: 1.3em;
+  }
+
+  .error-message {
+    color: rgb(255, 47, 47);
+    font-size: 1.3em;
+
+  }
+}</style>

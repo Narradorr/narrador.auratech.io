@@ -13,6 +13,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      {
+        name: 'keywords',
+        content:
+          'Интеграционные решения, Интеграция систем, Цифровая трансформация, Бизнес-процессы, Управление проектами, Автоматизация бизнеса, CRM-системы, ERP-системы, BI-системы, Big Data, Cloud-решения, Консультационные услуги, Облачные технологии, DevOps, Agile-методологии, Разработка ПО, Инфраструктура, Комплексные решения, Техническая поддержка, Управление данными, ',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -75,6 +80,6 @@ export default {
   },
 
   generate: {
-    dir: 'docs'
-  }
+    dir: 'docs',
+  },
 }
