@@ -13,7 +13,7 @@
                 </div>
                 <div class="phone">
                     <img src="/img/phone_black.svg" alt="" />
-                    <a href="tel:+7 (707) 83 99946">+7 (707) 83 99946</a>
+                    <a href="tel:+77770249314">+7 (777)-024-93-14</a>
                 </div>
                 <div class="email">
                     <img src="/img/email_black.svg" alt="" />
