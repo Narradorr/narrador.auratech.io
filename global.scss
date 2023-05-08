@@ -96,3 +96,12 @@ a.nav-link:hover:after {
     text-transform: uppercase;
     color: #000000;
 }
+
+
+@media screen and (orientation: portrait) and (max-width: 880px) {
+    .title-text {
+        font-size: 2.2em;
+        line-height: 2.2em;
+    }
+    
+}

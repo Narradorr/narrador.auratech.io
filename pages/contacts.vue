@@ -104,6 +104,11 @@
 }
 
 @media screen and (orientation: portrait) and (max-width: 880px) {
+    .contacts__title-text {
+        font-size: 2.2em;
+        line-height: 2.2em;
+    }
+
     .contacts__info-block {
         display: flex;
         flex-direction: column-reverse;

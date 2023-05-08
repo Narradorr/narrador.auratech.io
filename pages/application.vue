@@ -4,35 +4,35 @@
       <div class="application__title-text title-text">Заявка</div>
     </div>
     <form ref="form" @submit.prevent="sendEmail">
-      <div class="row my-4">
-        <div class="col-md-5">
+      <div class="row my-4 qq-row">
+        <div class="col-md-5 qq-col">
           <input required oninvalid="this.setCustomValidity('Это обязательное поле')" oninput="this.setCustomValidity('')"
             type="text" name="user_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Ваше имя" />
         </div>
-        <div class="col-md-5 col-sm-12 ">
+        <div class="col-md-5 qq-col ">
           <input required oninvalid="this.setCustomValidity('Это обязательное поле. Введите телефон')"
             oninput="this.setCustomValidity('')" type="phone" name="user_phone" class="form-control"
             id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Контактный номер"
-            v-mask="'+7 (___) ___ __ __'" />
+            v-mask="'+7 (___) ___ __ __'" v-model="phone" />
           <!-- <vue-tel-input v-model="vueTel.phone" v-bind="vueTel.props"></vue-tel-input> -->
         </div>
       </div>
 
-      <div class="row my-4">
-        <div class="col-md-5">
+      <div class="row my-4 qq-row">
+        <div class="col-md-5 qq-col">
           <input required oninvalid="this.setCustomValidity('Это обязательное поле. Введите email')"
             oninput="this.setCustomValidity('')" type="email" name="user_email" class="form-control"
             id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" />
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 qq-col">
           <input type="text" name="user_company" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Компания" />
         </div>
       </div>
 
-      <div class="row my-4">
-        <div class="col-md-10">
+      <div class="row my-4 qq-row">
+        <div class="col-md-10 qq-col">
           <textarea name="message" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Описание задачи"></textarea>
         </div>
@@ -76,24 +76,13 @@ export default Vue.extend({
     return {
       sendSuccess: false,
       sendError: false,
-      vueTel: {
-        phone: "",
-        props: {
-          preferredCountries: ["US", "GB"],
-          placeholder: "Enter your phone",
-          mode: "international",
-          inputOptions: {
-            showDialCode: true
-          },
-          disabledFormatting: false,
-          wrapperClasses: "country-phone-input"
-        }
-      },
+      phone: '',
     }
   },
   methods: {
     sendEmail() {
-      emailjs.sendForm('service_excjnbl', 'template_nowtjlc', this.$refs.form, 'eCvyPeabLe8Y53cnR')
+      if (this.phone === '' || this.phone === '+7 (___) ___ __ __') return;
+      emailjs.sendForm('service_wzkd44g', 'template_nowtjlc', this.$refs.form, 'XNV8pgltVU54Ov9bN')
         .then((result) => {
           this.sendSuccess = true;
           console.log('SUCCESS!', result.text);
@@ -137,10 +126,6 @@ export default Vue.extend({
 
   }
 
-  .row+.row {
-    margin-top: 2em !important;
-  }
-
   .success-message {
     color: rgb(43, 198, 43);
     font-size: 1.3em;
@@ -151,5 +136,19 @@ export default Vue.extend({
     font-size: 1.3em;
 
   }
+}
+
+@media screen and (orientation: portrait) and (max-width: 880px) {
+
+  .qq-row {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .qq-col {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
 }
 </style>
