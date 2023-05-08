@@ -20,11 +20,13 @@
                     <a href="mailto:info@lorem ipsum">info@auratech.kz</a>
                 </div>
                 <div class="back_call">
-                    <button class="btn qq-button">Оставить заявку</button>
+                    <NuxtLink to="/application">
+                        <button class="btn qq-button">Оставить заявку</button>
+                    </NuxtLink>
                 </div>
             </div>
             <div class="contacts__map">
-                <img class="map-image" src="/img/map.png" alt="img/" />
+                <img class="map-image" src="/img/map.jpeg" alt="img/" />
             </div>
         </div>
     </section>
@@ -33,8 +35,6 @@
 <style lang="scss">
 .contacts__section {
     position: relative;
-    // margin: 0 !important;
-    // margin-left: auto !important;
 }
 
 .contacts__info-block {

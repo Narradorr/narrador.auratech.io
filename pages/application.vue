@@ -48,8 +48,8 @@
         <div class="col-md-10">
           <div class="error-message">Возникли проблемы при отправки заявки. Пожалуйста, свяжитесь с нами по номеру,
             указанному в <NuxtLink to="/contacts">контактах</NuxtLink>
+          </div>
         </div>
-      </div>
       </div>
 
       <div class="row my-4">
@@ -65,7 +65,7 @@
 
 
 <script>
-import Vue from 'vue'
+import Vue from 'vue';
 import emailjs from '@emailjs/browser';
 // import {VueTelInput} from 'vue-tel-input';
 // import 'vue-tel-input/dist/vue-tel-input.css';
@@ -151,4 +151,5 @@ export default Vue.extend({
     font-size: 1.3em;
 
   }
-}</style>
+}
+</style>

@@ -19,7 +19,7 @@ a.nav-link {
     display: inline-block;
 }
 
-a.nav-link :after {
+a.nav-link:after {
     display: block;
     content: '';
     height: 4px;
@@ -29,7 +29,7 @@ a.nav-link :after {
     box-shadow: inset -40px 0px 30px -25px #fff, inset 40px 0px 30px -25px #fff;
 }
 
-a.nav-link :hover:after {
+a.nav-link:hover:after {
     transform: scaleX(1);
 }
 

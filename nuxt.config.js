@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'auratech-nuxt',
+    title: 'Auratech - Интеграционные решения ',
     htmlAttrs: {
       lang: 'en',
     },
@@ -20,7 +20,7 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       {
         rel: 'preconnect',
@@ -47,6 +47,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    'vue-ssr-carousel/nuxt',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -83,3 +84,5 @@ export default {
     dir: 'docs',
   },
 }
+
+// sendgrid api key - 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
